@@ -4,6 +4,7 @@ import { routes } from "./router/routes";
 import { mockData } from "./mocks/seedData";
 import { StatusBadge } from "./components/common/StatusBadge";
 import { StatCard } from "./components/common/StatCard";
+import { TimelinePage } from "./pages/TimelinePage";
 import "./styles.css";
 
 function Page({ name }: { name: string }) {
@@ -47,7 +48,7 @@ function App() {
       <div className="brand">舞台灯光编排模拟器</div>
       <nav>{routes.map((route) => <button key={route.route} className={active === route.route ? "active" : ""} onClick={() => setActive(route.route)}>{route.name}</button>)}</nav>
     </aside>
-    <Page name={current?.name ?? "工作台"} />
+    {current?.route === "/timeline" ? <TimelinePage /> : <Page name={current?.name ?? "工作台"} />}
   </div>;
 }
 

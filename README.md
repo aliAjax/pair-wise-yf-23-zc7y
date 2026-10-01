@@ -53,6 +53,19 @@ frontend/src/api, stores, types, constants, constructors, components/common, hoo
 - FixtureType: constants/FixtureType、types/FixtureType、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
 - CueStatus: constants/CueStatus、types/CueStatus、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
 - ChannelMode: constants/ChannelMode、types/ChannelMode、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
+- ReconciliationStatus（MATCHED 按时执行 / NOT_EXECUTED 未执行 / TIMEOUT 超时 / OVERRIDDEN 被覆盖 / ORPHAN 无编排）: `types/ReconciliationStatus`、`constants/ReconciliationStatus`（文案）、`constants/statusText`（聚合）、`utils/reconciliationEngine`（判定）、`components/common/StatusBadge` 与 `ReconciliationResultTable`（徽标/筛选）、`pages/TimelinePage`（指标卡）。
+- BatchStatus（PENDING / RUNNING / DONE / FAILED）: `types/BatchStatus`、`constants/BatchStatus`（文案）、`constants/statusText`、`stores/ReconciliationStore`、`workers/reconciliationWorker`、`components/common/ReconciliationProgress`。
+
+## 执行对账台（/timeline）
+
+时间轴页即“执行对账台”，把灯控台导出的执行记录粘贴进来后：
+
+1. 按“演出开始时间 + 同一时刻控台时钟读数”计算时钟偏移，逐条把控台触发时刻对齐到本地相对毫秒（支持 `HH:MM:SS[.mmm]` 与 ISO 两种格式、跨零点）。
+2. 逐条比对本地编排（TimelineTrack × CueScene）与实际触发时刻，输出五类条目：按时执行 / 未执行 / 超时（超过容差窗口）/ 被覆盖（同场景重复触发或被同层更高优先级场景抢触发）/ 无编排（孤儿记录）。
+3. 报告带编排指纹（`utils/schedule.buildScheduleSignature`）：编排改动后旧对账自动标记为作废（stale），需重新对账，不自动重算。
+4. 记录超过 `RECONCILIATION_BATCH_SIZE`（默认 200 条）时分批在 Web Worker 核对（`workers/reconciliationWorker`，无 Worker 环境回退主线程）；某批失败时保留已完成批次的结果，可仅重试失败批次。
+5. 控台记录与报告持久化在 localStorage（键见 `constants/reconciliationConfig.STORAGE_KEYS`），刷新后自动回读。
+6. 灯具通道快照按兼容方式读回（`utils/channelSnapshot`）：支持 `channels={"1":255}`、`channel_snapshot`、`1@255 2@128` 等写法；旧数据缺快照时返回 `null`，不阻断对账。
 
 ## 为什么会牵一发动全身
 

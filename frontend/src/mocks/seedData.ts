@@ -34,29 +34,29 @@ export const mockData = {
   "cueScene": [
     {
       "id": 1,
-      "name": "name 1",
+      "name": "开场暖场",
       "fixture_states": "fixture states 1",
-      "fade_in_ms": "fade in ms 1",
-      "hold_ms": "hold ms 1",
-      "priority": "priority 1",
+      "fade_in_ms": "1500",
+      "hold_ms": "8000",
+      "priority": "10",
       "scene_status": "READY"
     },
     {
       "id": 2,
-      "name": "name 2",
+      "name": "主唱定点",
       "fixture_states": "fixture states 2",
-      "fade_in_ms": "fade in ms 2",
-      "hold_ms": "hold ms 2",
-      "priority": "priority 2",
-      "scene_status": "DISABLED"
+      "fade_in_ms": "1000",
+      "hold_ms": "12000",
+      "priority": "20",
+      "scene_status": "READY"
     },
     {
       "id": 3,
-      "name": "name 3",
+      "name": "尾声全亮",
       "fixture_states": "fixture states 3",
-      "fade_in_ms": "fade in ms 3",
-      "hold_ms": "hold ms 3",
-      "priority": "priority 3",
+      "fade_in_ms": "2000",
+      "hold_ms": "10000",
+      "priority": "30",
       "scene_status": "DRAFT"
     }
   ],
@@ -64,26 +64,26 @@ export const mockData = {
     {
       "id": 1,
       "cue_scene_id": 1,
-      "start_ms": "start ms 1",
-      "duration_ms": "duration ms 1",
-      "layer": "layer 1",
-      "locked": "locked 1"
+      "start_ms": "0",
+      "duration_ms": "9500",
+      "layer": "MAIN",
+      "locked": "false"
     },
     {
       "id": 2,
       "cue_scene_id": 2,
-      "start_ms": "start ms 2",
-      "duration_ms": "duration ms 2",
-      "layer": "layer 2",
-      "locked": "locked 2"
+      "start_ms": "10000",
+      "duration_ms": "13000",
+      "layer": "MAIN",
+      "locked": "false"
     },
     {
       "id": 3,
       "cue_scene_id": 3,
-      "start_ms": "start ms 3",
-      "duration_ms": "duration ms 3",
-      "layer": "layer 3",
-      "locked": "locked 3"
+      "start_ms": "25000",
+      "duration_ms": "12000",
+      "layer": "MAIN",
+      "locked": "true"
     }
   ],
   "showProject": [
