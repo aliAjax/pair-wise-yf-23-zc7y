@@ -1,1 +1,44 @@
 :root{font-family:"Aptos","PingFang SC",system-ui,sans-serif;color:#20211d;background:#eef1e8}body{margin:0}.shell{min-height:100vh;display:grid;grid-template-columns:260px 1fr}aside{background:#223126;color:#f5f1e6;padding:28px 20px;border-right:6px solid #d39b46}.brand{font-size:20px;font-weight:800;line-height:1.25;margin-bottom:24px}nav{display:grid;gap:8px}button{border:0;background:transparent;color:inherit;text-align:left;padding:10px 12px;border-radius:6px;cursor:pointer}button.active,button:hover{background:#f5f1e6;color:#223126}.page{padding:30px;display:grid;gap:22px}.page-head{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid #c9d0c3;padding-bottom:18px}.eyebrow{margin:0 0 8px;color:#7d4d18;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.08em}h1{font-size:clamp(28px,4vw,46px);margin:0;letter-spacing:0}h2{margin:0 0 14px;font-size:18px}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.stat,.panel{background:#fbfaf4;border:1px solid #d8d6c8;border-radius:8px;padding:18px}.stat span{display:block;color:#596257;font-size:13px}.stat strong{font-size:30px;color:#274335}.workbench{display:grid;grid-template-columns:2fr 1fr;gap:18px}.row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:12px;border-top:1px solid #e4e0d3;padding:12px 0}.badge{display:inline-flex;align-items:center;min-height:24px;border-radius:999px;background:#e4efe4;color:#244b31;padding:2px 10px;font-size:12px;font-weight:800}.shared-widget,.empty{border:1px dashed #b8b09f;padding:14px;border-radius:8px}@media (max-width:760px){.shell{grid-template-columns:1fr}aside{position:static}.metrics,.workbench{grid-template-columns:1fr}.page{padding:18px}.page-head{align-items:flex-start;gap:12px;flex-direction:column}}
+
+.page-sub{margin:-8px 0 0;color:#596257;font-size:14px;line-height:1.6}
+.reconciliation-desk{display:grid;gap:18px}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.panel-head h2{margin:0}
+.paste-area{width:100%;box-sizing:border-box;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;border:1px solid #d8d6c8;border-radius:6px;padding:10px;background:#fbfaf4;color:#20211d;resize:vertical}
+.paste-actions{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
+button.primary{background:#274335;color:#f5f1e6;padding:10px 18px;border-radius:6px;font-weight:700}
+button.primary:hover{background:#1d3329}
+button.primary:disabled{background:#9aa59d;cursor:not-allowed}
+button.link{background:transparent;color:#7d4d18;text-decoration:underline;padding:4px}
+.hint{color:#596257;font-size:13px}
+.hint .fallback{color:#7d4d18;font-style:normal}
+.error-text{color:#a83a2a;font-size:13px;margin:8px 0 0}
+.field{display:grid;gap:6px;margin:12px 0}
+.field span{font-size:13px;color:#596257}
+.field input{padding:8px 10px;border:1px solid #d8d6c8;border-radius:6px;background:#fbfaf4;font-size:14px;width:220px}
+.reconcile-action .paste-actions{margin-top:0}
+.banner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 18px;border-radius:8px;border:1px solid}
+.banner.stale{background:#fdf3e3;border-color:#d39b46}
+.banner.stale strong{display:block;color:#7d4d18;margin-bottom:2px}
+.banner.stale span{color:#596257;font-size:13px}
+.progress-track{height:12px;background:#e4e0d3;border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;background:#274335;transition:width .3s}
+.progress-fill.failed{background:#a83a2a}
+.progress-meta{display:flex;align-items:center;justify-content:space-between;margin-top:10px;font-size:13px;color:#596257}
+.stat em{display:block;font-style:normal;font-size:12px;color:#596257;margin-top:4px}
+.stat.tone-ok strong{color:#244b31}
+.stat.tone-warn strong{color:#7d4d18}
+.stat.tone-bad strong{color:#a83a2a}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid #d8d6c8;border-radius:999px;padding:4px 12px;font-size:12px;background:#fbfaf4;color:#596257}
+.chip.active{background:#274335;color:#f5f1e6;border-color:#274335}
+.result-row{grid-template-columns:auto auto auto auto 1fr auto;gap:10px;font-size:13px}
+.result-row .detail{color:#596257;font-size:12px}
+.badge.status-matched{background:#e4efe4;color:#244b31}
+.badge.status-overtime{background:#fdf3e3;color:#7d4d18}
+.badge.status-missed{background:#fbe4de;color:#a83a2a}
+.badge.status-overridden{background:#fdf3e3;color:#7d4d18}
+.badge.status-extra{background:#eef1e8;color:#596257}
+.pagination{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;font-size:13px;color:#596257}
+.pagination button{border:1px solid #d8d6c8;border-radius:6px;padding:6px 14px;background:#fbfaf4}
+.pagination button:disabled{opacity:.5;cursor:not-allowed}
